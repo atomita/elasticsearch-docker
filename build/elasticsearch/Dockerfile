@@ -30,6 +30,9 @@ USER elasticsearch
 # Install xpack
 RUN eval ${ES_JAVA_OPTS:-} elasticsearch-plugin install --batch x-pack
 
+# Install kuromoji
+RUN eval ${ES_JAVA_OPTS:-} elasticsearch-plugin install --batch analysis-kuromoji
+
 COPY elasticsearch.yml config/
 COPY log4j2.properties config/
 COPY bin/es-docker bin/es-docker
